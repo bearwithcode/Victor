@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>registerCon</servlet-name>
+        <servlet-class>Controller.registerCon</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>welcomediaryCon</servlet-name>
+        <servlet-class>Controller.welcomediaryCon</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getDiaryCon</servlet-name>
+        <servlet-class>Controller.getDiaryCon</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registerCon</servlet-name>
+        <url-pattern>/registerCon</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>welcomediaryCon</servlet-name>
+        <url-pattern>/welcomediaryCon</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getDiaryCon</servlet-name>
+        <url-pattern>/getDiaryCon</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <security-constraint>
+        <display-name>cilentconstrain</display-name>
+        <web-resource-collection>
+            <web-resource-name>diary content</web-resource-name>
+            <description/>
+            <url-pattern>/welcomediaryCon</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>who can add or read their past diary</description>
+            <role-name>client</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>DiaryLogin</realm-name>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/loginerror.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>people which  can write and view their diries</description>
+        <role-name>client</role-name>
+    </security-role>
+</web-app>
