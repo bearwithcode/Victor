@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>searchshow</servlet-name>
+        <servlet-class>Controller.searchshow</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addinfo</servlet-name>
+        <servlet-class>Controller.addinfo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>scheduleshow</servlet-name>
+        <servlet-class>Controller.scheduleshow</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>searchreport</servlet-name>
+        <servlet-class>Controller.searchreport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>searchshow</servlet-name>
+        <url-pattern>/searchshow</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addinfo</servlet-name>
+        <url-pattern>/addinfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>scheduleshow</servlet-name>
+        <url-pattern>/scheduleshow</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchreport</servlet-name>
+        <url-pattern>/searchreport</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>welcome.jsp</welcome-file>
+    </welcome-file-list>
+    <security-constraint>
+        <display-name>detailing constraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>event info constraint</web-resource-name>
+            <description>who can add supp info</description>
+            <url-pattern>/addinfo</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>what kind of people can add supplement info</description>
+            <role-name>detailers</role-name>
+            <role-name>schedulers</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>schedule constraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>events schedule constrains</web-resource-name>
+            <description>who can add event fo database</description>
+            <url-pattern>/scheduleshow</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>who can add events to db</description>
+            <role-name>schedulers</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>entertaiment_certificate</realm-name>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/loginerror.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>add shows and add supplement data</description>
+        <role-name>schedulers</role-name>
+    </security-role>
+    <security-role>
+        <description>only can add supplement data</description>
+        <role-name>detailers</role-name>
+    </security-role>
+</web-app>
