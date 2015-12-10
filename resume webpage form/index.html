@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/myStyle.css">
+    </head>
+    <body  ng-app="myResumeApp">
+        <div id="home" data-role="page">
+            <div id="welcome" style="display: none">
+                <h1 >Hello this is Victor Xiaoxiong LiZhao</h1>
+            </div>
+
+            <div id="meinfo" style="display: none">
+                <a id="butt" href="#coverletter" data-transition="slidedown" class="ui-btn ui-icon-info ui-btn-icon-left">Know about me,click me m8</a>
+            </div>
+        </div>
+
+        <div id="coverletter" data-role="page">
+            <div data-role="header">
+                <h1>Cover Letter </h1>  
+                <a href="#home" data-transition="flip" data-icon="arrow-l" data-iconpos="left">HOME</a>
+                <a href="#resume" data-transition="flip" data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">Next</a>
+            </div> 
+            <div data-role="content">
+                <img id="heart" ng-src='imgs/heart.png' alt="heart"><span class="hl">heart beating key points</span>
+                <a href="#personal" data-role="button"  data-icon="star" data-transition="pop" data-iconpos="bottom">Personal contact details click me</a>
+
+                <p id="lcon" style="padding: 1em">
+                    Dear Sir/Madam<br><br>
+                    This letter is to express my interest in Software Development position of your respected
+                    organization. I seize this opportunity because this condition is very appealing and 
+                    suitable for my expertise.
+                    I believe the skill I currently possess in <span class="hl">PHP and JAVA</span> for backend,<span class="hl">jQuery and HTML5</span> 
+                    for frontend will meet the your organization demand, I’m good at coding and I also have
+                    experience being a leader in a software project group, which give me some edge in
+                    understanding software development process. The key strength I equip with is not restricted
+                    to the knowledge, but I also have the ability of <span class="hl">quick learning</span> and <span class="hl">adopting to new</span>
+                    <span class="hl">environment</span>, which means even there could be some gap between college study and real
+                    working environment, and I believe everyone does, but my ability and talent will overcome
+                    all these problems. And I really have passion to confront any barrier before me
+                    I graduate from <span class="hl">University of Wollongong postgraduate degree</span>, and my knowledge is not
+                    restricted to the college knowledge which afforded me, also during the summer and winter
+                    break I didn’t waste my time to play video games,I'm <span class="hl">eager to</span> be a full stack developer.
+                    I learnt <span class="hl">Android application development</span> and used <span class="hl">C# to develop windows store APP</span> by myself. I feel 
+                    myself totally into programming, it’s kind of my hobby to create stuff that I can let other people and
+                    myself appreciate. It affords me sense of achievement. During 2 years of college study, not
+                    only handling the knowledge but also mastering <span class="hl">communication skills</span>, <span class="hl">organization skills</span>
+                    and self-study skill are good development by participating in software development group,
+                    so I believe myself competently in this position with these skills and knowledge.
+                    Thank you for considering my application, I have enclose my resume, which details more
+                    information . I look forward to arranging an interview to discuss my suitability for the role.
+                    If I am successful, I will be able to begin work immediately. Please do not hesitate to
+                    contact me on 0415 774 747 if you require further information.
+                    <br><br>
+                    <span class="hl">Yours sincerely</span><br>
+                    Xiaoxiong Lizhao</p>
+            </div>
+
+        </div>
+
+        <div id="resume" data-role="page">
+            <div data-role="header">
+                <h1>Resume</h1>  
+                <a href="#coverletter" data-transition="flip" data-icon="arrow-l" data-iconpos="left">Back</a> 
+                <a id="projectbu" href="#project" data-transition="flip" data-icon="arrow-r" data-iconpos="right">Next</a> 
+            </div>
+
+            <h1>Technical Competencies</h1>
+            <h3 style="color:red">Tick all checkbox, you will find surprise</h3>
+            <table class="ui-responsive table table-striped">
+                <thead>
+                <th>category</th>
+                <th>details</th>
+                <th>check to reveal details</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Operating Systems,Server Platform and Database</td>
+                        <td>
+                            <p style="display: none" id="p1">
+                               Windows 8.1 Linux Ubuntu<br>
+                               Apache,Glassfish<br>
+                               MySQL
+                            </p>
+                        </td>
+                        <td><input type="checkbox" onclick="checkall(1)"></td>
+                    </tr>
+                    <tr>
+                        <td>Programming Languages:</td>
+                        <td>
+                            <p style="display: none" id="p2">
+                                Backend:JAVA, PHP,c++, C#
+                                Frontend:javascript/jQuery, jQuery UI,AJAX, HTML5,CSS3
+                            </p>
+                        </td>
+                        <td><input type="checkbox" onclick="checkall(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>IDE and software</td>
+                        <td>
+                            <p style="display: none" id="p3">Netbeans, android studio, Visual Studio 2013,sublime,adobe photoshop</p>
+                        </td>
+                        <td><input type="checkbox" onclick="checkall(3)"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h1>Technical experience</h1>
+            <h3 style="color:red">you can click column header and sort them</h3>
+            <table class="ui-responsive table table-striped" ng-controller="myResumeCon">
+                <thead>
+                    <tr>
+                        <th ng-click="sortData('name')" >name<div ng-class="getSortClass('name')"></div></th>
+                        <th ng-click="sortData('years')" >years<div ng-class="getSortClass('years')"></div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="exp in allexp | orderBy:sortCol:reverseSort">
+                        <td>{{exp.name}}</td>
+                        <td>{{exp.years}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div  data-role="footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#uniex" data-role="button"  data-icon="star" data-transition="pop" data-iconpos="bottom">Current experience</a>
+                        </li>
+                        <li>
+                            <a href="#leadex" data-role="button"  data-icon="star" data-transition="pop" data-iconpos="bottom">Uni leadership</a>
+                        </li>
+                        <li>
+                            <a href="#unisubject" data-role="button"  data-icon="star" data-transition="pop" data-iconpos="bottom">Course Work:</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="project" data-role="page">
+            <div data-role="header">
+                <h1>Project Portfolio</h1>  
+                <a href="#resume" data-transition="flip" data-icon="arrow-l" data-iconpos="left">Back</a> 
+                <a href="https://github.com/bearwithcode/Victor.git" data-transition="flip" data-icon="arrow-r" data-iconpos="right">Got to GitHub</a> 
+            </div>
+            <div data-role="content">
+                <h1>this is 50% of my project, there more in click github right-top and code in there</h1>
+            </div>
+            <div data-role="footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#book1" data-role="button"  data-icon="grid" data-transition="turn" data-iconpos="bottom">Maze game</a>
+                        </li>    
+                        <li>
+                            <a href="#book2" data-role="button"  data-icon="grid" data-transition="turn" data-iconpos="bottom">Movie Check</a>
+                        </li>
+                        <li>
+                            <a href="#book3" data-role="button"  data-icon="grid" data-transition="turn" data-iconpos="bottom">Zend TV show</a>
+                        </li>
+                        <li>
+                            <a href="#book4" data-role="button"  data-icon="grid" data-transition="turn" data-iconpos="bottom">JavaEE TV show</a>
+                        </li>
+                        <li>
+                            <a href="#book5" data-role="button"  data-icon="grid" data-transition="turn" data-iconpos="bottom">Project Management tools dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#book6" data-role="button"  data-icon="grid" data-transition="turn" data-iconpos="bottom">Flight Ticket Booking(e-commerce)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="personal" data-role='dialog'>
+            <div data-role='header'>
+                <h1>how you find me</h1>
+            </div>
+            <div data-role='content'>
+                <pre>
+                    Name: Xiaoxiong Lizhano
+                    Gender: Male 
+                    Age: 26 
+                    Hobbies: Programming and Web Designing
+                    Mobile:0415 774 747
+                    Email:bearbearinmel@gmail.com(mrvictorheike@163.com)
+                </pre>
+            </div>
+            <div data-role='footer'>               
+                <a href="#coverletter" data-transition="flow" data-icon="back">back</a>
+            </div>
+        </div>
+
+        <div id="uniex" data-role='dialog'>
+            <div data-role='header'>
+                <h1>my Expience</h1>
+            </div>
+            <div data-role='content'>
+                <p>
+                    Just graduate.However, After two years of study, I find myself being a really quick learner, and this is the most important, which turns out I get talent, I make really good progress and learn faster than most of the people in uni. maybe not enough experience, but I have capability to handle different
+                    kinds of program language or platform in a very shot time, and have creativity to handle the problem when crops up. Moreover I’m good at using different programming languages writing algorism to solve the problem, and I find myself creative in thinking algorism. Or use some technique like breaking the big 
+                    and sophisticated problem down into the small manageable one.
+                </p>
+            </div>
+            <div data-role='footer'>
+                <a href="#resume" data-transition="flow" data-icon="back">back</a>
+            </div>
+        </div>
+
+        <div id="leadex" data-role='dialog'>
+            <div data-role='header'>
+                <h1>Leadership Experience</h1>
+            </div>
+            <div data-role='content'>
+                <p>
+                    Used to lead 5 people to do software project in Uni, employing the agile(scrum) development environment as well as being the chief programming in the group at the same time, I use java servlet as backend controller, JPA as model, and JSP/JSTL as frontend view.
+                </p>
+            </div>
+            <div data-role='footer'>
+                <a href="#resume" data-transition="flow" data-icon="back">back</a>
+            </div>
+        </div>
+
+        <div id="unisubject" data-role='dialog'>
+            <div data-role='header'>
+                <h1>what do I learn in classroom</h1>
+            </div>
+            <div data-role='content'>
+                <pre>
+                    ● C++ Programming
+                    ● Java programming
+                    ● PHP programming
+                    ● Algorithm design and problem solving
+                    ● Design pattern
+                    ● Object-oriented programming
+                    ● Project development in Agile Environment
+                    ● HTML5 JavaScript/jQuery Webpage Design (canvas, websocket, localstorage)
+                    ● Computer System Security
+                </pre>
+            </div>
+            <div data-role='footer'>
+                <a href="#resume" data-transition="flow" data-icon="back">back</a>
+            </div>
+        </div>
+        
+        <div class="bookkkk" id="book1" data-role='dialog'>
+            <div data-role='header'>
+                <h1>maze shooting game use jquery html5 canvas and websocket</h1>
+            </div>
+            <div data-role='content'>
+                <embed src="pdfs/A2.pdf" class="putbook" type='application/pdf'>
+            </div>
+            <div data-role='footer'>
+                <a href="#project" data-transition="slidefade" data-icon="back">back</a>
+            </div>
+        </div>
+        
+        <div class="bookkkk"  id="book2" data-role='dialog'>
+            <div data-role='header'>
+                <h1>movie check use adodb for orm php smarty tempate</h1>
+            </div>
+            <div data-role='content'>
+                <embed src="pdfs/A3.pdf" class="putbook" type='application/pdf'>
+            </div>
+            <div data-role='footer'>
+                <a href="#project" data-transition="slidefade" data-icon="back">back</a>
+            </div>
+        </div>
+        
+        <div class="bookkkk"  id="book3" data-role='dialog'>
+            <div data-role='header'>
+                <h1>Tv show check, use php zend framework</h1>
+            </div>
+            <div data-role='content'>
+                <embed src="pdfs/A4.pdf" class="putbook" type='application/pdf'>
+            </div>
+            <div data-role='footer'>
+                <a href="#project" data-transition="slidefade" data-icon="back">back</a>
+            </div>
+        </div>
+        
+        <div class="bookkkk"  id="book4" data-role='dialog'>
+            <div data-role='header'>
+                <h1>TV show check use JSP/JSTL JPA Java servlet technology</h1>
+            </div>
+            <div data-role='content'>
+                <embed src="pdfs/A6.pdf" class="putbook" type='application/pdf'>
+            </div>
+            <div data-role='footer'>
+                <a href="#project" data-transition="slidefade" data-icon="back">back</a>
+            </div>
+        </div>
+        
+        <div class="bookkkk"  id="book5" data-role='dialog'>
+            <div data-role='header'>
+                <h1>a project management tool,php and bootstrap</h1>
+            </div>
+            <div data-role='content'>
+                <embed src="pdfs/project1.pdf" class="putbook" type='application/pdf'>
+            </div>
+            <div data-role='footer'>
+                <a href="#project" data-transition="slidefade" data-icon="back">back</a>
+            </div>
+        </div>
+        
+        <div class="bookkkk"  id="book6" data-role='dialog'>
+            <div data-role='header'>
+                <h1>booking flight ticket website, e-commerce base use bootstrap and javaEE</h1>
+            </div>
+            <div data-role='content'>
+                <embed src="pdfs/project2.pdf" class="putbook" type='application/pdf'>
+            </div>
+            <div data-role='footer'>
+                <a href="#project" data-transition="slidefade" data-icon="back">back</a>
+            </div>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="js/myScript.js"></script>
+    </body>
+</html>

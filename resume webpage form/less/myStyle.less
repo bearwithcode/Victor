@@ -1,0 +1,81 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 09/12/2015, 2:46:21 PM
+    Author     : victor
+*/
+@purple:#9024C6;
+@red:#DA3866;
+@homepage-image:"../imgs/home.jpg";
+@fontsize:1em;
+@commonwidth:60%;
+@heartw:3em;
+@hearth:3em;
+
+.welcomeArea{
+    margin: auto;
+    width: @commonwidth;
+    border:1em solid #24B6C6;
+    padding: 3em;
+    background-color: @purple;
+}
+
+#home{
+    background: url("@{homepage-image}");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#welcome{
+    .welcomeArea;   
+}
+
+#meinfo{
+    .welcomeArea;
+}
+
+#lcon{
+    .welcomeArea;
+    background:@purple * 5; 
+}
+
+.highlight{
+    font-size: @fontsize * 1.2;
+    color: @red;
+}
+
+.heart-beating{
+    width: @heartw * 1.1;
+    height: @hearth * 1.1;
+}
+
+.arrow{
+    width: 2em;
+    height: 2em; 
+    display: inline-block;
+    background-size: 100%;
+}
+
+.arrow-up{
+    .arrow;
+    background-image: url("../imgs/up.png");
+}
+
+.arrow-down{
+    .arrow;
+    background-image: url("../imgs/down.png");
+}
+
+#project{
+    background-image: url("../imgs/books.jpg");
+    background-size: 100%;
+}
+
+.putbook{
+    width: 100%;
+    height: 100%;
+}
+
