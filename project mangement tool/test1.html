@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Test 1</title>
+</head>
+<body id="body">
+	<ul id="list">
+
+	</ul>
+</body>
+<script src="javascript/jquery.min.js"></script>
+<script type="text/javascript">
+	$.post("includes/get_all_users.php", {qualification_type: "All"}, function(data){
+		for (var i = 0; i < data.length; i++) {
+			$('#list').append('<li>' + JSON.stringify(data[i]) + '</li>');
+		}
+	}, "json");
+</script>
+</html>

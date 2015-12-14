@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Hello</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <link href="jquery-ui/jquery-ui.theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/myStyle.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" id="reg">
+                <div class="col-lg-12  form-control">
+                    <label for="uname">Username</label>
+                    <input id="uname" type="text"/>
+                    <button class="btn-info" onclick="register()">Register</button>
+                </div>
+            </div>
+            <div id="start" hidden="hidden">
+                <div class="row">
+                    <div class="col-lg-12  form-group">
+                        <textarea id="chatlog" class="form-control msgfont col-lg-12" rows="20"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12  form-group">
+                        <textarea class="form-control col-lg-12 msgfont" rows="5" id="msg"></textarea><br>
+                        <button class="btn-lg btn-success col-lg-6" onclick="send()">Send</button>
+                        <table class="table col-lg-2" id="ppl">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <script src="jquery-2.1.4.min.js"></script> 
+        <script src="jquery-ui/jquery-ui.min.js"></script> 
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/myScript.js"></script>
+    </body>
+</html>

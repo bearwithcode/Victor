@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Test 3</title>
+</head>
+<body id="body">
+	Expertises:
+	<ul id="list1">
+
+	</ul>
+	Roles:
+	<ul id="list2">
+
+	</ul>
+</body>
+<script src="javascript/jquery.min.js"></script>
+<script type="text/javascript">
+	$.post("includes/get_individual_qualifications.php", {username: "mymk997"}, function(data){
+		for (var j = 0; j < data.expertises.length; j++) {
+			$('#list1').append('<li>' + data.expertises[j] + '</li>');
+		}
+		for (var j = 0; j < data.roles.length; j++) {
+			$('#list2').append('<li>' + data.roles[j] + '</li>');
+		}
+	}, "json");
+</script>
+</html>
