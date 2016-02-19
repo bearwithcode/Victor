@@ -1,0 +1,9 @@
+D:\VSproject\DogRace\DogRace\bin\Debug\DogRace.exe.config
+D:\VSproject\DogRace\DogRace\bin\Debug\DogRace.exe
+D:\VSproject\DogRace\DogRace\bin\Debug\DogRace.pdb
+D:\VSproject\DogRace\DogRace\obj\Debug\DogRace.csprojResolveAssemblyReference.cache
+D:\VSproject\DogRace\DogRace\obj\Debug\DogRace.Form1.resources
+D:\VSproject\DogRace\DogRace\obj\Debug\DogRace.Properties.Resources.resources
+D:\VSproject\DogRace\DogRace\obj\Debug\DogRace.csproj.GenerateResource.Cache
+D:\VSproject\DogRace\DogRace\obj\Debug\DogRace.exe
+D:\VSproject\DogRace\DogRace\obj\Debug\DogRace.pdb

@@ -1,0 +1,9 @@
+D:\VSproject\AdventureGame\AdventureGame\bin\Debug\AdventureGame.exe.config
+D:\VSproject\AdventureGame\AdventureGame\bin\Debug\AdventureGame.exe
+D:\VSproject\AdventureGame\AdventureGame\bin\Debug\AdventureGame.pdb
+D:\VSproject\AdventureGame\AdventureGame\obj\Debug\AdventureGame.csprojResolveAssemblyReference.cache
+D:\VSproject\AdventureGame\AdventureGame\obj\Debug\AdventureGame.Form1.resources
+D:\VSproject\AdventureGame\AdventureGame\obj\Debug\AdventureGame.Properties.Resources.resources
+D:\VSproject\AdventureGame\AdventureGame\obj\Debug\AdventureGame.csproj.GenerateResource.Cache
+D:\VSproject\AdventureGame\AdventureGame\obj\Debug\AdventureGame.exe
+D:\VSproject\AdventureGame\AdventureGame\obj\Debug\AdventureGame.pdb
