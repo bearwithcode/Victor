@@ -1,0 +1,17 @@
+<div>
+    <div>
+        <h1>{{userProfile}}</h1>
+
+        <div>auto search count down {{countdown}}</div>
+        <form name="searchUser" ng-submit="search(searchedUserName)">
+            <input type="search" ng-model="searchedUserName" placeholder="Username to find">
+            <input type="submit" value="Search">
+        </form>
+
+        <!--don't evaluate,use string literal-->
+        <!--<div ng-include="'user_detail.html'" ng-show="toggleErrorMessage"></div>-->
+    </div>
+    <!--<div ng-hide="toggleErrorMessage">
+        <h1>{{errorMsg}}</h1>
+    </div>-->
+</div>
