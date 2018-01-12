@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['githubService']);
+var app = angular.module('myApp');
 
 /*
  *<1>$http is substitute by github,
@@ -34,7 +34,7 @@ app.controller('MainController',function ($scope,$interval,$location) {
 
     var decrementCountdown = function () {
         $scope.countdown -= 1;
-        $log.info("decrementCountdown " + $scope.countdown);
+        //$log.info("decrementCountdown " + $scope.countdown);
         if($scope.countdown < 1){
             $scope.search($scope.searchedUserName)
         }
@@ -42,7 +42,7 @@ app.controller('MainController',function ($scope,$interval,$location) {
 
     var countdownInterval = null;
     var startCountdown = function () {
-        $log.info("startCountdown");
+        //$log.info("startCountdown");
         countdownInterval = $interval(decrementCountdown,1000,$scope.countdown);
     };
 

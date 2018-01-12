@@ -6,5 +6,5 @@ app.config(function ($routeProvider) {
             templateUrl:"main.html",
             controller:"MainController"
         })
-        .otherwise({redirectTo:"/main"})
+        .otherwise({redirectTo:"/main"});
 });
