@@ -1,13 +1,16 @@
-var app = angular.module('myApp',['githubService']);
+var app = angular.module('myApp');
 
-//$http is substitute by github
-app.controller('MainController',function ($scope,github,$interval,$log,$anchorScroll,$location) {
+/**
+ * $http is substitute by github
+ */
+app.controller('UserController',function ($scope,github,$routeParams) {
     var baseUrl = "https://api.github.com/";
     var subUrl_1 = "users/";
 
     $scope.toggleErrorMessage = false;
-    $scope.countdown = 10;
-    $scope.searchedUserName = "angular";
+
+    //$scope.searchedUserName = "angular";
+    $scope.searchedUserName = $routeParams.username;
 
     var onRepos = function (response) {
         //$scope.repos = response.data;
@@ -27,20 +30,6 @@ app.controller('MainController',function ($scope,github,$interval,$log,$anchorSc
     var onError = function () {
         $scope.errorMsg = "something wrong, maybe user not exist";
         $scope.toggleErrorMessage = false;
-    };
-
-    var decrementCountdown = function () {
-        $scope.countdown -= 1;
-        $log.info("decrementCountdown " + $scope.countdown);
-        if($scope.countdown < 1){
-            $scope.search($scope.searchedUserName)
-        }
-    };
-
-    var countdownInterval = null;
-    var startCountdown = function () {
-        $log.info("startCountdown");
-        countdownInterval = $interval(decrementCountdown,1000,$scope.countdown);
     };
 
     $scope.userProfile = "User Profile";
@@ -73,15 +62,5 @@ app.controller('MainController',function ($scope,github,$interval,$log,$anchorSc
         }
     };
 
-    $scope.search = function (searchedUserName) {
-        $log.info("search for " + searchedUserName);
-        //$http.get(baseUrl + subUrl_1 + searchedUserName).then(onUserComplete,onError);
-        github.getUser(searchedUserName).then(onUserComplete,onError);
-        if(countdownInterval){
-            $interval.cancel(countdownInterval);
-            $scope.countdown = null;
-        }
-    };
-
-    startCountdown();
+    github.getUser($scope.searchedUserName).then(onUserComplete,onError);
 });

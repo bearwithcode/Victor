@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['ngRoute']);
+var app = angular.module('myApp',['ngRoute','githubService']);//the thing is you have to put these in here, study later
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -6,5 +6,9 @@ app.config(function ($routeProvider) {
             templateUrl:"main.html",
             controller:"MainController"
         })
+        .when("/user/:username",{
+            templateUrl:"user_detail.html",
+            controller:"UserController"
+        })//it will treat this as a parameter
         .otherwise({redirectTo:"/main"});
 });
