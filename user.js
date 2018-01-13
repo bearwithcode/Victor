@@ -3,20 +3,15 @@ var app = angular.module('myApp');
 /**
  * $http is substitute by github
  */
-app.controller('UserController',function ($scope,github,$routeParams) {
-    var baseUrl = "https://api.github.com/";
-    var subUrl_1 = "users/";
-
+app.controller('UserController',function ($scope,github,$routeParams,$location) {
     $scope.toggleErrorMessage = false;
-
-    //$scope.searchedUserName = "angular";
     $scope.searchedUserName = $routeParams.username;
 
     var onRepos = function (response) {
         //$scope.repos = response.data;
         $scope.repos = response;
-        $location.hash("search_result");
-        $anchorScroll();
+        //$location.hash("search_result");
+        //$anchorScroll();
     };
 
     var onUserComplete = function (response) {
@@ -60,6 +55,10 @@ app.controller('UserController',function ($scope,github,$routeParams) {
         else{
             $scope.repoSortOrder = "+language"
         }
+    };
+
+    $scope.goRepoPage = function (repo_name) {
+        $location.path("/repo/" + $scope.user.name + "/" + repo_name);
     };
 
     github.getUser($scope.searchedUserName).then(onUserComplete,onError);

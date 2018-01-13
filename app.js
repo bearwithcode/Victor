@@ -10,5 +10,9 @@ app.config(function ($routeProvider) {
             templateUrl:"user_detail.html",
             controller:"UserController"
         })//it will treat this as a parameter
+        .when("/repo/:projectname/:reponame",{
+            templateUrl:"repository_detail.html",
+            controller:"RepositoryController"
+        })
         .otherwise({redirectTo:"/main"});
 });
